@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jump Results - Vertical Jump Tester</title>
+    <meta name="description" content="Your vertical jump results with scientific analysis, performance benchmarks, and detailed explanations.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div class="container">
+        <header class="page-header">
+            <a href="editor.html" class="back-link" aria-label="Analyze another jump">&larr; Analyze Another</a>
+            <h1>Your Jump Results</h1>
+        </header>
+        <main>
+            <!-- Main Results Card -->
+            <section class="card result-card" aria-label="Jump results">
+                <div class="result-hero">
+                    <div class="result-main">
+                        <span class="result-value" id="jump-height">-- cm</span>
+                        <span class="result-label">Jump Height</span>
+                    </div>
+                    <div class="result-badge" id="performance-rating">
+                        <span id="rating-text">Calculating...</span>
+                    </div>
+                </div>
+                
+                <div class="result-details">
+                    <div class="result-item">
+                        <span class="result-label">Flight Time</span>
+                        <span id="flight-time" class="result-value">-- ms</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Take-off Velocity</span>
+                        <span id="takeoff-velocity" class="result-value">-- m/s</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Power Output</span>
+                        <span id="power-output" class="result-value">-- W/kg</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technical Details Card -->
+            <section class="card technical-card" aria-labelledby="technical-title">
+                <h3 id="technical-title">Technical Details</h3>
+                <div class="technical-grid">
+                    <div class="tech-item">
+                        <span class="tech-label">Frame Rate</span>
+                        <span id="fps-value" class="tech-value">-- fps</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-label">Take-off Time</span>
+                        <span id="takeoff-value" class="tech-value">--</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-label">Landing Time</span>
+                        <span id="landing-value" class="tech-value">--</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-label">Measurement Precision</span>
+                        <span id="precision-value" class="tech-value">± -- cm</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Performance Comparison Card -->
+            <section class="card comparison-card" aria-labelledby="comparison-title">
+                <h3 id="comparison-title">Performance Comparison</h3>
+                <div class="comparison-content">
+                    <div class="percentile-display">
+                        <div class="percentile-bar">
+                            <div class="percentile-fill" id="percentile-fill" style="width: 0%"></div>
+                            <div class="percentile-marker" id="user-marker"></div>
+                        </div>
+                        <div class="percentile-labels">
+                            <span>Poor</span>
+                            <span>Average</span>
+                            <span>Excellent</span>
+                        </div>
+                    </div>
+                    <div class="benchmark-text" id="benchmark-text">
+                        <p>Loading comparison data...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Science Explanation Card -->
+            <section class="card science-explanation-card" aria-labelledby="science-title">
+                <h3 id="science-title">How We Calculate Your Jump</h3>
+                <div class="science-content">
+                    <div class="formula-display">
+                        <div class="formula">h = g × t² ÷ 8</div>
+                        <div class="formula-explanation">
+                            <p><strong>Where:</strong></p>
+                            <ul>
+                                <li><strong>h</strong> = Jump height (meters)</li>
+                                <li><strong>g</strong> = Gravity (9.81 m/s²)</li> 
+                                <li><strong>t</strong> = Flight time (seconds)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="calculation-details" id="calculation-details">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Action Card -->
+            <section class="card action-card">
+                <div class="action-buttons">
+                    <button id="share-results-btn" class="btn btn-primary" type="button">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18,16.08C17.24,16.08 16.56,16.38 16.04,16.85L8.91,12.7C8.96,12.47 9,12.24 9,12C9,11.76 8.96,11.53 8.91,11.3L15.96,7.19C16.5,7.69 17.21,8 18,8A3,3 0 0,0 21,5A3,3 0 0,0 18,2A3,3 0 0,0 15,5C15,5.24 15.04,5.47 15.09,5.7L8.04,9.81C7.5,9.31 6.79,9 6,9A3,3 0 0,0 3,12A3,3 0 0,0 6,15C6.79,15 7.5,14.69 8.04,14.19L15.16,18.34C15.11,18.55 15.08,18.77 15.08,19C15.08,20.61 16.39,21.91 18,21.91C19.61,21.91 20.92,20.61 20.92,19A2.92,2.92 0 0,0 18,16.08Z"/></svg>
+                        Share Results
+                    </button>
+                    <a href="editor.html" class="btn btn-secondary">Test Again</a>
+                    <a href="index.html" class="btn btn-outline">Back to Home</a>
+                </div>
+                <div id="share-status" class="share-status" aria-live="polite"></div>
+            </section>
+        </main>
+
+        <footer class="main-footer" aria-label="Footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <p>&copy; 2025 Jump Lab. Empowering athletic performance through science.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="results.js"></script>
+</body>
+</html>

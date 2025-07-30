@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertical Jump Tester - Scientific Athletic Performance Measurement</title>
+    <meta name="description" content="Professional vertical jump measurement using smartphone video analysis. Accurate flight time calculation for athletes, coaches, and researchers. Free, scientific, and instant results.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="favicon.ico">
+    <meta name="theme-color" content="#2563eb">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Vertical Jump Tester - Scientific Athletic Performance" />
+    <meta property="og:description" content="Professional video-based jump height measurement. Used by athletes worldwide for accurate performance tracking." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="jump-preview.png" />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- PWA -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Jump Lab">
+</head>
+<body>
+    <div class="background-pattern" aria-hidden="true"></div>
+    <div class="container" role="main">
+        <header class="main-header">
+            <div class="header-content">
+                <div class="logo-section" aria-label="App Logo and title">
+                    <span class="logo-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" role="img" aria-label="Jump Lab Logo" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L8 6V8L12 4L16 8V6L12 2Z" fill="currentColor"/>
+                            <path d="M8 16L12 20L16 16V14L12 18L8 14V16Z" fill="currentColor"/>
+                            <rect x="11" y="8" width="2" height="8" fill="currentColor"/>
+                        </svg>
+                    </span>
+                    <div>
+                        <h1>Vertical Jump Tester</h1>
+                        <p class="subtitle">Scientific measurement for athletic performance</p>
+                    </div>
+                </div>
+                <dl class="stats-grid" aria-label="Key features">
+                    <div class="stat-item">
+                        <dt class="stat-label">Accuracy</dt>
+                        <dd class="stat-number">±1 cm</dd>
+                    </div>
+                    <div class="stat-item">
+                        <dt class="stat-label">Analysis</dt>
+                        <dd class="stat-number">Real-time</dd>
+                    </div>
+                    <div class="stat-item">
+                        <dt class="stat-label">Validated</dt>
+                        <dd class="stat-number">Research-grade</dd>
+                    </div>
+                </dl>
+            </div>
+        </header>
+
+        <main>
+            <section class="cards-grid" aria-label="Features and Instructions">
+                <article class="card featured-card" aria-labelledby="start-analysis-title">
+                    <div class="card-header">
+                        <div class="card-icon primary" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.77 3.77z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h2 id="start-analysis-title">Start Analysis</h2>
+                    </div>
+                    <p class="card-description">Upload or record a video of your jump to get precise measurement of your flight time and jump height using advanced video analysis validated by sports science research.</p>
+                    <ul class="card-features" aria-label="Key features">
+                        <li class="feature-item">
+                            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <span>Frame-by-frame precision analysis</span>
+                        </li>
+                        <li class="feature-item">
+                            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <span>Instant scientific results</span>
+                        </li>
+                        <li class="feature-item">
+                            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <span>Research-grade accuracy</span>
+                        </li>
+                    </ul>
+                    <a href="editor.html" class="btn btn-primary" role="button" aria-label="Begin video analysis">
+                        <span>Begin Analysis</span>
+                        <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
+                    </a>
+                </article>
+
+                <article class="card instructions-card" aria-labelledby="how-works-title">
+                    <div class="card-header">
+                        <div class="card-icon secondary" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="currentColor"/></svg>
+                        </div>
+                        <h3 id="how-works-title">How It Works</h3>
+                    </div>
+                    <ol class="instructions" aria-label="Steps for using the tester">
+                        <li>
+                            <div class="step-number" aria-hidden="true">1</div>
+                            <div class="step-content">
+                                <strong>Record Your Jump</strong>
+                                <p>Film your vertical jump from the side view in good lighting. Use 60+ FPS for best results.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="step-number" aria-hidden="true">2</div>
+                            <div class="step-content">
+                                <strong>Mark Take-off &amp; Landing</strong>
+                                <p>Precisely identify the exact frames when feet leave and touch the ground.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="step-number" aria-hidden="true">3</div>
+                            <div class="step-content">
+                                <strong>Get Scientific Results</strong>
+                                <p>Receive instant jump height calculation with performance benchmarks and explanations.</p>
+                            </div>
+                        </li>
+                    </ol>
+                </article>
+
+                <article class="card tips-card" aria-labelledby="pro-tips-title">
+                    <div class="card-header">
+                        <div class="card-icon accent" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor"/></svg>
+                        </div>
+                        <h3 id="pro-tips-title">Pro Tips</h3>
+                    </div>
+                    <ul class="tips-list" aria-label="Expert advice">
+                        <li>Use 60fps or higher recording</li>
+                        <li>Ensure good lighting conditions</li>
+                        <li>Keep camera steady and level</li>
+                        <li>Film from 3–5 meters away</li>
+                        <li>Use side-on view for accuracy</li>
+                    </ul>
+                </article>
+
+                <article class="card science-card" aria-labelledby="science-title">
+                    <div class="card-header">
+                        <div class="card-icon tertiary" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9.5 14C10.9 14 12 15.1 12 16.5S10.9 19 9.5 19 7 17.9 7 16.5 8.1 14 9.5 14M9.5 12C7 12 5 14 5 16.5S7 21 9.5 21 14 19 14 16.5 12 14 9.5 12M18.5 10C19.9 10 21 8.9 21 7.5S19.9 5 18.5 5 16 6.1 16 7.5 17.1 10 18.5 10M18.5 8C17.1 8 16 6.9 16 5.5S17.1 3 18.5 3 21 4.1 21 5.5 19.9 8 18.5 8Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3 id="science-title">The Science</h3>
+                    </div>
+                    <p class="card-description">Our calculations use validated physics principles: h = g×t²/8, where flight time determines jump height through projectile motion equations.</p>
+                </article>
+            </section>
+        </main>
+
+        <footer class="main-footer" aria-label="Footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <p>&copy; 2025 Jump Lab. Empowering athletic performance through science. <a href="privacy.html" aria-label="Privacy Policy">Privacy</a></p>
+                </div>
+                <div class="footer-links">
+                    <span class="footer-badge">Made for Athletes</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

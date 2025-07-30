@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyze Jump - Vertical Jump Tester</title>
+    <meta name="description" content="Analyze your vertical jump video with frame-by-frame precision. Mark take-off and landing for accurate height calculation.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div class="container">
+        <header class="page-header">
+            <a href="index.html" class="back-link" aria-label="Return to Home">&larr; Home</a>
+            <h1>Analyze Your Jump</h1>
+        </header>
+        <main>
+            <!-- Video Selection Step -->
+            <section id="video-selection-screen" class="card" aria-labelledby="video-selection-title">
+                <h2 id="video-selection-title">1. Select Video</h2>
+                <p>Choose a video file from your device or record a new one for analysis.</p>
+                <div class="upload-controls">
+                    <label for="video-upload" class="btn btn-secondary" tabindex="0" role="button">
+                        <svg viewBox="0 0 24 24" fill="currentColor" class="upload-icon">
+                            <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                        </svg>
+                        Upload Video
+                    </label>
+                    <input type="file" id="video-upload" accept="video/*" style="display:none" aria-label="Upload video file">
+                    <button id="record-btn" class="btn btn-secondary" type="button">
+                        <svg viewBox="0 0 24 24" fill="currentColor" class="record-icon">
+                            <circle cx="12" cy="12" r="10" fill="currentColor"/>
+                        </svg>
+                        Record Video
+                    </button>
+                </div>
+                <div class="tip-box">
+                    <p class="tip"><strong>Tip:</strong> For best results, use 60+ fps, steady side-on filming, and good lighting.</p>
+                </div>
+            </section>
+
+            <!-- FPS Input Step -->
+            <section id="fps-input-screen" class="card hidden" aria-labelledby="fps-input-title">
+                <h2 id="fps-input-title">2. Enter Frame Rate</h2>
+                <p>This is crucial for accurate jump height calculation. Check your device settings or video info if unsure.</p>
+                <div class="fps-input-container">
+                    <label for="fps-input" class="input-label">Frames Per Second (FPS)</label>
+                    <input type="number" min="1" max="240" step="1" id="fps-input" class="form-input" inputmode="numeric" placeholder="e.g., 60" aria-required="true">
+                    <div class="fps-presets">
+                        <button type="button" class="fps-preset" data-fps="30">30 FPS</button>
+                        <button type="button" class="fps-preset" data-fps="60">60 FPS</button>
+                        <button type="button" class="fps-preset" data-fps="120">120 FPS</button>
+                        <button type="button" class="fps-preset" data-fps="240">240 FPS</button>
+                    </div>
+                </div>
+                <button id="set-fps-btn" class="btn btn-primary" type="button">Confirm FPS & Continue</button>
+            </section>
+
+            <!-- Editor Step -->
+            <section id="editor-screen" class="card hidden" aria-labelledby="editor-title">
+                <h2 id="editor-title">3. Mark Jump Frames</h2>
+                <div class="video-container">
+                    <video id="video-player" playsinline controls preload="metadata" aria-label="Jump video" tabindex="0"></video>
+                    <div class="video-overlay">
+                        <div class="crosshair" id="crosshair"></div>
+                    </div>
+                </div>
+                
+                <div id="frame-controls" class="frame-controls">
+                    <button id="prev-frame-btn" class="btn btn-sm" type="button" aria-label="Previous frame">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"/></svg>
+                        Prev
+                    </button>
+                    <div class="time-display">
+                        <span id="current-time" aria-live="polite">0.000s</span>
+                        <div class="frame-indicator">
+                            Frame: <span id="current-frame">0</span>
+                        </div>
+                    </div>
+                    <button id="next-frame-btn" class="btn btn-sm" type="button" aria-label="Next frame">
+                        Next
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/></svg>
+                    </button>
+                </div>
+
+                <div class="marker-controls">
+                    <div class="marker-section">
+                        <button id="mark-takeoff-btn" class="btn btn-success" type="button" aria-label="Mark take-off frame">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7,14L12,9L17,14H7Z"/></svg>
+                            Mark Take-off
+                        </button>
+                        <span id="takeoff-time" class="time-label" aria-live="polite">Not set</span>
+                    </div>
+                    <div class="marker-section">
+                        <button id="mark-landing-btn" class="btn btn-success" type="button" aria-label="Mark landing frame">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7,10L12,15L17,10H7Z"/></svg>
+                            Mark Landing
+                        </button>
+                        <span id="landing-time" class="time-label" aria-live="polite">Not set</span>
+                    </div>
+                </div>
+
+                <div class="analysis-preview" id="analysis-preview" style="display: none;">
+                    <h4>Preview Calculation</h4>
+                    <div class="preview-data">
+                        <span>Flight Time: <strong id="preview-flight-time">--</strong></span>
+                        <span>Estimated Height: <strong id="preview-height">--</strong></span>
+                    </div>
+                </div>
+
+                <button id="analyze-btn" class="btn btn-primary" type="button" disabled>Calculate Jump Height</button>
+                <div class="hint" id="mark-hint" aria-live="polite"></div>
+            </section>
+        </main>
+    </div>
+    <script src="editor.js"></script>
+</body>
+</html>
